@@ -1,0 +1,13 @@
+[
+ {
+  "directory": "/home/ishmum/Projects/cpp-cli",
+  "arguments": [
+   "g++",
+   "src/main.cpp",
+   "--std=c++17",
+   "-o",
+   "build/cli"
+  ],
+  "file": "src/main.cpp"
+ }
+]
