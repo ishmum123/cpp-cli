@@ -1,3 +1,3 @@
 make
 chmod 755 build/cli
-echo "Hello, World!" | build/cli --single false 2>&1
+echo "Hello, World!\nMy Friend" | build/cli --single false 2>&1

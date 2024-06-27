@@ -1,19 +1,22 @@
+#include "absl/status/statusor.h"
 #include "parser.h"
 #include "runner.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
   Config c = parse(argc, argv);
-  Result r = run(c);
+  absl::StatusOr<vector<string>> result = run(c);
 
-  for (string line : r.getOutput())
-    cout << line << endl;
-
-  for (string line : r.getErrors())
-    cerr << line << endl;
+  if (result.ok()) {
+    for (string line : result.value())
+      cout << line << endl;
+  } else {
+    cerr << result.status() << endl;
+  }
 
   return 0;
 }

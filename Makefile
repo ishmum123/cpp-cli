@@ -1,15 +1,14 @@
-LDLIBS = -liostream -lstdlib -lstring -lfstream
+LDLIBS = $(shell pkg-config absl_statusor absl_strings --libs | sed 's/-Wl//g')
+SRC_DIR = src
+BUILD_DIR = build
 
 all: clean parser runner cli
 
-cli: src/main.cpp
-	g++ src/main.cpp --std=c++20 -o build/cli build/parser.o build/runner.o
+cli: $(SRC_DIR)/main.cpp
+	g++ $(SRC_DIR)/main.cpp --std=c++20 -o $(BUILD_DIR)/cli $(BUILD_DIR)/parser.o $(BUILD_DIR)/runner.o $(LDLIBS)
 
-runner: src/runner.cpp
-	g++ -c src/runner.cpp --std=c++20 -o build/runner.o
-
-parser: src/parser.cpp
-	g++ -c src/parser.cpp --std=c++20 -o build/parser.o
-
+%: $(SRC_DIR)/%.cpp
+	g++ -c $(SRC_DIR)/$*.cpp --std=c++20 -o $(BUILD_DIR)/$*.o $(LDLIBS)
+		
 clean:
 	rm build/* -f
