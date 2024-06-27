@@ -8,7 +8,11 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  Config c = parse(argc, argv);
+  vector<string> lines;
+  for (string line; getline(cin, line);)
+    lines.push_back(line);
+
+  Config c = parse(argc, argv, lines);
   absl::StatusOr<vector<string>> result = run(c);
 
   if (result.ok()) {
