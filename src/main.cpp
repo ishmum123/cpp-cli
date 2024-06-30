@@ -12,11 +12,11 @@ int main(int argc, char *argv[]) {
   for (string line; getline(cin, line);)
     lines.push_back(line);
 
-  Config c = parse(argc, argv, lines);
+  absl::StatusOr<Config> c = parse(argc, argv, lines);
   absl::StatusOr<vector<string>> result = run(c);
 
   if (result.ok()) {
-    for (string line : result.value())
+    for (string& line : result.value())
       cout << line << endl;
   } else {
     cerr << result.status() << endl;
