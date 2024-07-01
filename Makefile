@@ -12,7 +12,7 @@ cli: $(SRC_DIR)/main.cpp parser runner
 test: clean parser_test
 
 parser_test: parser
-	g++ $(TEST_DIR)/parser.cpp $(BUILD_DIR)/parser.o $(TEST_LDLIBS) -o $(BUILD_DIR)/test 
+	g++ $(TEST_DIR)/parser.cpp $(BUILD_DIR)/parser.o $(TEST_LDLIBS) $(LDLIBS) -o $(BUILD_DIR)/test 
 
 %: $(SRC_DIR)/%.cpp
 	g++ -c $(SRC_DIR)/$*.cpp --std=c++20 -o $(BUILD_DIR)/$*.o $(LDLIBS)

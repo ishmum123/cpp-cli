@@ -7,8 +7,8 @@
 
 using namespace std;
 
-absl::StatusOr<vector<string>> run(Config c) {
-  string s = absl::StrJoin(c.getLines(), ",");
+absl::StatusOr<vector<string>> run(absl::StatusOr<Config> c) {
+  string s = absl::StrJoin(c->getLines(), ",");
   vector<string> v = {s};
-  return v;
+  return static_cast<absl::StatusOr<vector<string>>>(v);
 };
