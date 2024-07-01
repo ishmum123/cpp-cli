@@ -8,4 +8,4 @@ absl::StatusOr<Config> parse(int argc, char *argv[], std::vector<std::string> in
 
 // TODO: Add `validate` method
 
-absl::StatusOr<Config> validate(Config c);
+// absl::StatusOr<Config> validate(Config c);
