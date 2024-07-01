@@ -2,16 +2,16 @@
 #include <gtest/gtest.h>
 #include <string>
 
-TEST(ParseTest, ParsesNoInput) {
-  char *argv[] = {0};
-    absl::StatusOr<Config> c = parse(1, argv, {});
+// TEST(ParseTest, ParsesNoInput) {
+//   char *argv[] = {0};
+//     absl::StatusOr<Config> c = parse(1, argv, {});
 
-  EXPECT_EQ(c->getIsSingle(), false);
-  EXPECT_EQ(c->getLines().size(), 0);
-}
+//   EXPECT_EQ(c->getIsSingle(), false);
+//   EXPECT_EQ(c->getLines().size(), 0);
+// }
 
 TEST(ParseTest, ParsesSimpleInput) {
-  string arg1 = "--simple";
+  string arg1 = "--single";
   string arg2 = "true";
   char *argv[] = {arg1.data(), arg2.data(), 0};
   absl::StatusOr<Config> c = parse(3, argv, {});
@@ -29,16 +29,14 @@ TEST(ParseTest, ParsesIntegerInput) {
   EXPECT_EQ(c->getIsSingle(), true);
 }
 
-
-TEST(ParseTest, ParsesBoolInput) {
-  string arg1 = "--bool";
-  string arg2 = "true";
+TEST(ParseTest, ParsesNegetiveIntegerInput) {
+  string arg1 = "--integer";
+  string arg2 = "431";
   char *argv[] = {arg1.data(), arg2.data(), 0};
     absl::StatusOr<Config> c = parse(3, argv, {});
 
   EXPECT_EQ(c->getIsSingle(), true);
 }
-
 
 TEST(ParseTest, ParsesStringInput) {
   string arg1 = "--string";

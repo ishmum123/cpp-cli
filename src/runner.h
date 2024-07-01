@@ -5,4 +5,4 @@
 
 using namespace std;
 
-absl::StatusOr<vector<string>> run(absl::StatusOr<Config> c);
+absl::StatusOr<vector<string>> run(Config c);

@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     lines.push_back(line);
 
   absl::StatusOr<Config> c = parse(argc, argv, lines);
-  absl::StatusOr<vector<string>> result = run(c);
+  absl::StatusOr<vector<string>> result = run(c.value());
 
   if (result.ok()) {
     for (string& line : result.value())
