@@ -5,7 +5,7 @@
 TEST(AutoparseTest, ParsesNoInput) {
   char *argv[] = {0};
   const auto &c = autoparse<Config>(1, argv, {});
-  EXPECT_NE(c.getIsSingle(), false);
+  EXPECT_EQ(c.getIsSingle(), false);
 }
 
 TEST(AutoparseTest, ParsesSimpleInput) {

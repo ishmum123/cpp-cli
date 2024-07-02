@@ -4,8 +4,7 @@
 
 using namespace std;
 
-class Config {
-public:
+struct Config {
   Config();
   Config(bool, vector<string>);
   Config(Config &&) = default;
@@ -17,12 +16,12 @@ public:
   // Getters
   vector<string> getLines();
   bool getIsSingle() const;
-private:
-    bool single;
-    vector<string> lines;
+
+  bool single;
+  vector<string> lines;
 };
 
-inline Config::Config(){}
+inline Config::Config() : single(false), lines({}){}
 
 inline Config::Config(bool single, vector<string> lines)
     : single(single), lines(lines) {}
