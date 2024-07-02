@@ -9,6 +9,9 @@ all: clean parser runner cli
 cli: $(SRC_DIR)/main.cpp parser runner
 	g++ $(SRC_DIR)/main.cpp --std=c++20 $(BUILD_DIR)/parser.o $(BUILD_DIR)/runner.o $(LDLIBS) -o $(BUILD_DIR)/cli 
 
+autoparser: $(SRC_DIR)/autoparser.cpp 
+	g++ $(SRC_DIR)/autoparser.cpp --std=c++20 third-party/rfl/thirdparty/yyjson.c  -Ithird-party -o $(BUILD_DIR)/autoparser
+
 test: clean autoparser_test
 
 autoparser_test:
