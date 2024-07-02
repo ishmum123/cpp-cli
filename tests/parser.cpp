@@ -11,7 +11,7 @@ TEST(ParseTest, ParsesNoInput) {
 }
 
 TEST(ParseTest, ParsesSimpleInput) {
-  string arg1 = "--simple";
+  string arg1 = "--single";
   string arg2 = "true";
   char *argv[] = {arg1.data(), arg2.data(), 0};
   Config c = parse(3, argv, {});
