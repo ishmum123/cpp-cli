@@ -5,6 +5,8 @@ TEST_DIR = tests
 BUILD_DIR = build
 RFL_DIR=/usr/local/include/rfl
 STD= c++20
+# TODO: Add documentation on how to compile this project. 
+
 
 all: clean parser runner cli
 
