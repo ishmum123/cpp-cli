@@ -1,5 +1,5 @@
 #include "absl/status/statusor.h"
-#include "parser.h"
+#include "autoparser.h"
 #include "runner.h"
 #include <iostream>
 #include <string>
@@ -12,8 +12,8 @@ int main(int argc, char *argv[]) {
   for (string line; getline(cin, line);)
     lines.push_back(line);
 
-  Config c = parse(argc, argv, lines);
-  absl::StatusOr<vector<string>> result = run(c);
+  auto c = autoparse<Config>(argc, argv, lines);
+  absl::StatusOr<vector<string>> result = run(c.value());
 
   if (result.ok()) {
     for (string line : result.value())
