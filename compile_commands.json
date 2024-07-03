@@ -5,8 +5,6 @@
    "g++",
    "src/main.cpp",
    "--std=c++20",
-   "-o",
-   "build/cli",
    "build/parser.o",
    "build/runner.o",
    "-labsl_statusor",
@@ -27,7 +25,10 @@
    "-labsl_int128",
    "-labsl_throw_delegate",
    "-labsl_raw_logging_internal",
-   "-labsl_log_severity"
+   "-labsl_log_severity",
+   "-I/home/ishmum/Projects/cpp-cli/third-party",
+   "-o",
+   "build/cli"
   ],
   "file": "src/main.cpp"
  },
@@ -58,7 +59,8 @@
    "-labsl_int128",
    "-labsl_throw_delegate",
    "-labsl_raw_logging_internal",
-   "-labsl_log_severity"
+   "-labsl_log_severity",
+   "-I/home/ishmum/Projects/cpp-cli/third-party"
   ],
   "file": "src/parser.cpp"
  },
@@ -89,7 +91,8 @@
    "-labsl_int128",
    "-labsl_throw_delegate",
    "-labsl_raw_logging_internal",
-   "-labsl_log_severity"
+   "-labsl_log_severity",
+   "-I/home/ishmum/Projects/cpp-cli/third-party"
   ],
   "file": "src/runner.cpp"
  }
