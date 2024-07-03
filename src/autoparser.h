@@ -1,5 +1,6 @@
 #include <rfl.hpp>
 #include <rfl/json.hpp>
+#include <absl/status/statusor.h>
 #include <string>
 #include <vector>
 #include "config.h"
@@ -8,7 +9,7 @@
 
 struct Config;
 template <typename T>
-T autoparse(int argc, char *argv[], std::vector<std::string> input_lines) {
+absl::StatusOr<T> autoparse(int argc, char *argv[], std::vector<std::string> input_lines) {
     T t = {};
     std::vector<std::pair<string,string>> types_of_members;
     for (const auto& f : rfl::fields<T>()) {
@@ -22,7 +23,7 @@ T autoparse(int argc, char *argv[], std::vector<std::string> input_lines) {
         flags_with_argument.emplace_back(flag,argument);
     }
 
-    // Validation
+    // TODO: Validation
     // Now I would like to check if T has a member of type flag
 
 

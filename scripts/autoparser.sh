@@ -1,2 +1,0 @@
-make autoparser
-build/autoparser
