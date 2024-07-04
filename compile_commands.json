@@ -37,38 +37,6 @@
   "arguments": [
    "g++",
    "-c",
-   "src/parser.cpp",
-   "--std=c++20",
-   "-o",
-   "build/parser.o",
-   "-labsl_statusor",
-   "-labsl_status",
-   "-labsl_stacktrace",
-   "-labsl_symbolize",
-   "-labsl_debugging_internal",
-   "-labsl_demangle_internal",
-   "-labsl_malloc_internal",
-   "-labsl_cord",
-   "-labsl_str_format_internal",
-   "-labsl_bad_optional_access",
-   "-labsl_bad_variant_access",
-   "-labsl_strings",
-   "-labsl_strings_internal",
-   "-labsl_base",
-   "-labsl_spinlock_wait",
-   "-labsl_int128",
-   "-labsl_throw_delegate",
-   "-labsl_raw_logging_internal",
-   "-labsl_log_severity",
-   "-I/home/ishmum/Projects/cpp-cli/third-party"
-  ],
-  "file": "src/parser.cpp"
- },
- {
-  "directory": "/home/ishmum/Projects/cpp-cli",
-  "arguments": [
-   "g++",
-   "-c",
    "src/runner.cpp",
    "--std=c++20",
    "-o",
@@ -91,9 +59,41 @@
    "-labsl_int128",
    "-labsl_throw_delegate",
    "-labsl_raw_logging_internal",
-   "-labsl_log_severity",
-   "-I/home/ishmum/Projects/cpp-cli/third-party"
+   "-labsl_log_severity"
   ],
   "file": "src/runner.cpp"
+ },
+ {
+  "directory": "/home/ishmum/Projects/cpp-cli",
+  "arguments": [
+   "g++",
+   "-std=c++20",
+   "tests/autoparser.cpp",
+   "/usr/local/include/rfl/rfl/thirdparty/yyjson.c",
+   "-I/usr/local/include/rfl",
+   "-lgtest",
+   "-labsl_statusor",
+   "-labsl_status",
+   "-labsl_stacktrace",
+   "-labsl_symbolize",
+   "-labsl_debugging_internal",
+   "-labsl_demangle_internal",
+   "-labsl_malloc_internal",
+   "-labsl_cord",
+   "-labsl_str_format_internal",
+   "-labsl_bad_optional_access",
+   "-labsl_bad_variant_access",
+   "-labsl_strings",
+   "-labsl_strings_internal",
+   "-labsl_base",
+   "-labsl_spinlock_wait",
+   "-labsl_int128",
+   "-labsl_throw_delegate",
+   "-labsl_raw_logging_internal",
+   "-labsl_log_severity",
+   "-o",
+   "build/test"
+  ],
+  "file": "/usr/local/include/rfl/rfl/thirdparty/yyjson.c"
  }
 ]
