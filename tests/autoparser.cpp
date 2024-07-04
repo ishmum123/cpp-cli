@@ -5,6 +5,11 @@
 
 using namespace std;
 
+struct Config {
+  bool single;
+  int threads;
+};
+
 TEST(AutoparseTest, ParsesNoInput) {
   char *argv[] = {0};
   auto c = autoparse<Config>(1, argv, {}).value();
