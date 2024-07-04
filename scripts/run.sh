@@ -1,3 +1,3 @@
 make
-chmod 755 build/cli
-echo "Hello, World!\nMy Friend" | build/cli --single false 2>&1
+chmod 755 build/connector
+echo "Hello, World!\nMy Friend" | build/connector --single false --thread 4 2>&1

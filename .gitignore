@@ -2,4 +2,3 @@ build/
 .cache/
 .vscode/
 .idea/
->>>>>>> d2bd0af (adds validation for single flag)

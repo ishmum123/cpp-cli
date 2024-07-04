@@ -5,11 +5,6 @@
 
 using namespace std;
 
-struct Config {
-  bool single;
-  int threads;
-};
-
 TEST(AutoparseTest, ParsesNoInput) {
   char *argv[] = {0};
   auto c = autoparse<Config>(1, argv, {}).value();
@@ -41,7 +36,7 @@ TEST(AutoparseTest, ParsesIntegerValue) {
   string arg2 = "4";
   vector<string> input_lines;
   char *argv[] = {arg1.data(), arg2.data(), 0};
-  auto c = autoparse<Config>(3, argv, input_lines);
+  auto c = autoparse<Config>(3, argv, input_lines).value();
 
   EXPECT_EQ(c.threads, 4);
 }
@@ -72,7 +67,7 @@ TEST(AutoparseTest, ParsesMultiplInputFlags) {
   string arg4 = "true";
   vector<string> input_lines;
   char *argv[] = {arg1.data(), arg2.data(), arg3.data(), arg4.data(), 0};
-  auto c = autoparse<Config>(5, argv, input_lines);
+  auto c = autoparse<Config>(5, argv, input_lines).value();
 
   EXPECT_EQ(c.single, true);
   EXPECT_EQ(c.threads, 2);
